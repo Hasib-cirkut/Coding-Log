@@ -4,8 +4,6 @@ Description: What is JSON Web Token and how it works internally.
 Author: Hasibul Huda
 ---
 
-# Json Web Token(JWT)
-
 Json Web Token or JWT for short is a self-contained way for transmitting information in JSON object securely between parties. JWTs can be signed so they can be verified and trusted. Algorithms like `HMAC` can be used to sign JWT with a secret or a private/public key pair using RSA.
 
 Authorization is the most common use case for JWT. Once the user logs in, each request made by user will include a JWT, which will allow user to access services, routes permitted with that token.
@@ -48,7 +46,6 @@ The payload contains claims which are statements about an entity e.g. the user a
 ```
 
 > Although payload is signed so it’s not tamperable, it can be read by anyone. So putting any secret information in payload isn’t advised unless the information is encrypted.
-> 
 
 ### Signature
 
@@ -65,12 +62,12 @@ Altogether we get a three Base64Url strings separated by dots that can be easily
 
 # Auth workflow using JWT
 
-Let’s say we have a user who wants to register and use our website. So for the first time he/she registers using username, passwords and other info such as emails, first name etc. After all the information is provided, they click submit, which uses a HTTPS POST method to transfer the information from our frontend application to our backend application. 
+Let’s say we have a user who wants to register and use our website. So for the first time he/she registers using username, passwords and other info such as emails, first name etc. After all the information is provided, they click submit, which uses a HTTPS POST method to transfer the information from our frontend application to our backend application.
 
 1. Our backend application catches the request, checks with the DB, if all is okay then a new JWT token with a payload containing the necessary user identifier and an expiration timestamp.
 2. The backend that takes a `secret key` and signs the JWT header and payload and sends it back to frontend.
 3. Then the frontend takes the JWT and starts to use it in every HTTP request to the server.
-4. Because the `secret key` is only known to the backend application, when a HTTP request comes to backend, it checks the JWT signature and makes sure the user is indeed someone who was signed by the backend during user registration. 
+4. Because the `secret key` is only known to the backend application, when a HTTP request comes to backend, it checks the JWT signature and makes sure the user is indeed someone who was signed by the backend during user registration.
 
 A signed JWT look similar to this,
 
@@ -102,54 +99,54 @@ So one big question still arises. If our encoded JWT can be read by anyone liste
 
 ## Hashing Function
 
-Well what is it? So a hashing function is unique function with some unique characteristics. 
+Well what is it? So a hashing function is unique function with some unique characteristics.
 
 1. **A hashing function is irreversible(One way function)**
-    
-    A hashing function is irreversible in nature. Meaning for some input we’ll get some output but not vice versa. For the same output we’ll never the get the inputs. One very simple example of an irreversible function is a function that multiplies two numbers. 
-    
-    **`f(x, y) = xy`.** The multiplication is easy, but to get the factors from the the multiplicative sum is can’t be solved in polynomial time.
-    
+
+   A hashing function is irreversible in nature. Meaning for some input we’ll get some output but not vice versa. For the same output we’ll never the get the inputs. One very simple example of an irreversible function is a function that multiplies two numbers.
+
+   **`f(x, y) = xy`.** The multiplication is easy, but to get the factors from the the multiplicative sum is can’t be solved in polynomial time.
+
 2. **A hashing function is deterministic**
-    
-    A deterministic function is a function that, for every invocation it will return the same result for the same given input. A multiplication function is a deterministic function because for the same inputs it’ll return the same output every time the function is called.
-    
+
+   A deterministic function is a function that, for every invocation it will return the same result for the same given input. A multiplication function is a deterministic function because for the same inputs it’ll return the same output every time the function is called.
+
 3. **A hashing function returns a unique output**
-    
-    For a different input every time,  a hashing function will return a different output for that given input. That means no two input in a hashing function will ever result in a same output.
-    
+
+   For a different input every time, a hashing function will return a different output for that given input. That means no two input in a hashing function will ever result in a same output.
+
 4. **A hashing function is chaotic in nature**
-    
-    What I mean by hashing function being chaotic is that, even a change to on alphabet of the input of the function will result in a completely different output which will not be remotely similar to the output before changing the characters. This makes the hashing function unaffected to incremental approximation methods. 
-    
-    Let me show what I mean. Let’s say we want to create a hash using SHA256 hash algorithm for a secret key. Let’s say the key is: “case”. We can use various online tool to easily create a hash using SHA256. I’ll use this site. [https://passwordsgenerator.net/sha256-hash-generator/](https://passwordsgenerator.net/sha256-hash-generator/)
-    
-    ```
-    BBFCD4160A1E8674DAC62292AE48BE4785262AD7078F9EC11B74A254CE70FA06 
-    ```
-    
-    You can use any website you want. Every one of them will generate the same hash for the `secret key` of “case” because **a hashing function is deterministic**. 
-    
-    Now let’s say we want change the first character of the secret key from “c” to “b”. That means our new secret key is “base”. Let’s try to create a hash using this one.
-    
-    ```
-    CAE662172FD450BB0CD710A769079C05BFC5D8E35EFA6576EDC7D0377AFDD4A2
-    ```
-    
-    If we notice, the two hashes are vastly different even though we only changed on characters in the secret key. Same way when a user registers, the signature of the JWT is hashed using a hashing function with `JWT.header + JWT.payload + secret key`. This is why when the signature is exposed to the attacker or the person who intercepted the network, they can’t decrypt the signature because **a hash function is a one way function**.
-    
-    So when a network request from frontend application(user browser) comes to backend application with a JWT, the backend application take the same payload and the secret key and passes it to the hash function. The new hash is then compared with the users hash to validate the user request.
-    
-    ## Drawbacks
-    
-    1. Only one secret key:
-        
-        A lot of JWT depends on only one secret key, which poorly handled by administrator or developers can lead to severe consequences.
-        
-    2. Data overhead:
-        
-        The sizes of JWT tokens are longer than normal tokens by design. When more information is added to the payload of JWT, it can be a point of data overhead.
-        
-    3. Can’t manage client from the server:
-        
-        Sometimes, the server may want to automatically logout the client, but with JWT it can’t because jwt is stateless.
+
+   What I mean by hashing function being chaotic is that, even a change to on alphabet of the input of the function will result in a completely different output which will not be remotely similar to the output before changing the characters. This makes the hashing function unaffected to incremental approximation methods.
+
+   Let me show what I mean. Let’s say we want to create a hash using SHA256 hash algorithm for a secret key. Let’s say the key is: “case”. We can use various online tool to easily create a hash using SHA256. I’ll use this site. [https://passwordsgenerator.net/sha256-hash-generator/](https://passwordsgenerator.net/sha256-hash-generator/)
+
+   ```
+   BBFCD4160A1E8674DAC62292AE48BE4785262AD7078F9EC11B74A254CE70FA06
+   ```
+
+   You can use any website you want. Every one of them will generate the same hash for the `secret key` of “case” because **a hashing function is deterministic**.
+
+   Now let’s say we want change the first character of the secret key from “c” to “b”. That means our new secret key is “base”. Let’s try to create a hash using this one.
+
+   ```
+   CAE662172FD450BB0CD710A769079C05BFC5D8E35EFA6576EDC7D0377AFDD4A2
+   ```
+
+   If we notice, the two hashes are vastly different even though we only changed on characters in the secret key. Same way when a user registers, the signature of the JWT is hashed using a hashing function with `JWT.header + JWT.payload + secret key`. This is why when the signature is exposed to the attacker or the person who intercepted the network, they can’t decrypt the signature because **a hash function is a one way function**.
+
+   So when a network request from frontend application(user browser) comes to backend application with a JWT, the backend application take the same payload and the secret key and passes it to the hash function. The new hash is then compared with the users hash to validate the user request.
+
+   ## Drawbacks
+
+   1. Only one secret key:
+
+      A lot of JWT depends on only one secret key, which poorly handled by administrator or developers can lead to severe consequences.
+
+   2. Data overhead:
+
+      The sizes of JWT tokens are longer than normal tokens by design. When more information is added to the payload of JWT, it can be a point of data overhead.
+
+   3. Can’t manage client from the server:
+
+      Sometimes, the server may want to automatically logout the client, but with JWT it can’t because jwt is stateless.

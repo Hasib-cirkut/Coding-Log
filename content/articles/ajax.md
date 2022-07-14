@@ -4,8 +4,7 @@ Description: What is Ajax and How to use it.
 Author: Hasibul Huda
 ---
 
-
-# AJAX
+## AJAX
 
 Ajax stands for Asynchronous javascript and XML. So what is it?
 
@@ -18,9 +17,9 @@ Two major feature of AJAX is:
 
 The key thing that makes Ajax so good and popular is the use of XMLHttpRequest object.
 
-# XMLHttpRequest
+## XMLHttpRequest
 
-XMLHttpRequest(XHR) object are used to interact with servers. By using them we can retrieve data from server asynchronously without doing a full refresh. 
+XMLHttpRequest(XHR) object are used to interact with servers. By using them we can retrieve data from server asynchronously without doing a full refresh.
 
 In order to make ajax call, we first need to make create an instance of XMLHttpRequest.
 
@@ -31,7 +30,7 @@ const httpRequest = new XMLHttpRequest();
 Now we need to attach a function that will handle the response after we send a request.
 
 ```jsx
-httpRequest.onreadystatechange = handleResponse()
+httpRequest.onreadystatechange = handleResponse();
 ```
 
 After that we need to call the `open()` method and `send()` method.
@@ -43,7 +42,7 @@ After that we need to call the `open()` method and `send()` method.
 And the `send()` method will contain any data if our HTTP method is `post`.
 
 ```jsx
-httpRequest.open('GET', 'http://www.example.org/some.file', true);
+httpRequest.open("GET", "http://www.example.org/some.file", true);
 httpRequest.send();
 
 //snippet from mdn
@@ -53,23 +52,23 @@ After the request is sent, the `handleResponse()` function should do is check th
 
 ```jsx
 if (httpRequest.readyState === XMLHttpRequest.DONE) {
-    // Everything is good, the response was received.
+  // Everything is good, the response was received.
 } else {
-    // Not ready yet.
+  // Not ready yet.
 }
 
 //snippet from mdn
 ```
 
-After than we have to check the HTTP response code. 
+After than we have to check the HTTP response code.
 
 ```jsx
 if (httpRequest.status === 200) {
-    // Perfect!
+  // Perfect!
 } else {
-    // There was a problem with the request.
-    // For example, the response may have a 404 (Not Found)
-    // or 500 (Internal Server Error) response code.
+  // There was a problem with the request.
+  // For example, the response may have a 404 (Not Found)
+  // or 500 (Internal Server Error) response code.
 }
 
 //snippet from mdn
