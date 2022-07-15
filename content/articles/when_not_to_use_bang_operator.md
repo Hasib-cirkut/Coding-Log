@@ -1,5 +1,5 @@
 ---
-Title: When not to use the Bang(!) operator.
+Title: When not to use the Bang(!) operator in JavaScript.
 Description: Most of the times, we blindly rely on bang operator when we expect truthy or falsey value. Here's why this is not a good idea.
 Author: Hasibul Huda
 ---

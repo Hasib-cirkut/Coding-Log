@@ -6,7 +6,7 @@
       <div class="">
         <p
           v-text="article.Title"
-          class="font-playfair text-2xl font-bold md:text-4xl"
+          class="font-playfair text-2xl text-center font-bold md:text-4xl"
         />
 
         <div class="flex flex-col md:flex-row justify-between items-center">
@@ -16,7 +16,7 @@
           </p>
 
           <p
-            class="h-fit bg-gray-100 text-gray-800 text-xs font-medium inline-flex items-center px-2.5 py-0.5 rounded mr-2 dark:bg-gray-700 dark:text-gray-300"
+            class="h-fit bg-gray-100 text-gray-800 text-xs font-medium inline-flex items-center px-2.5 py-0.5 rounded dark:bg-gray-700 dark:text-gray-300"
           >
             <svg
               class="w-3 h-3 mr-1"
@@ -32,6 +32,10 @@
             </svg>
             updated {{ updated }}
           </p>
+        </div>
+
+        <div class="flex justify-center md:justify-end">
+          <p class="text-sm"><span v-text="pageViews" /> views</p>
         </div>
 
         <template v-if="tocAvailable">
@@ -64,8 +68,6 @@ export default {
       .insert([{ id: route.params.slug, view_count: 1 }]);
 
     if (insertError) console.error(insertError);
-
-    console.log(insertData);
   },
   components: {
     TableOfContentVue,
@@ -102,10 +104,14 @@ export default {
   async mounted() {
     this.urlPath = this.$route.path;
 
-    let { data: pagevisit, error } = await this.$supabase
+    let { data, error } = await this.$supabase
       .from("pagevisit")
       .select("view_count")
-      .eq("id", "Equal to");
+      .eq("id", this.$route.params.slug);
+
+    if (error) console.error(error);
+
+    this.pageViews = data[0]["view_count"];
   },
 };
 </script>

@@ -4,6 +4,8 @@ Description: What is JSON Web Token and how it works internally.
 Author: Hasibul Huda
 ---
 
+> What is JSON Web Token and how it works internally.
+
 Json Web Token or JWT for short is a self-contained way for transmitting information in JSON object securely between parties. JWTs can be signed so they can be verified and trusted. Algorithms like `HMAC` can be used to sign JWT with a secret or a private/public key pair using RSA.
 
 Authorization is the most common use case for JWT. Once the user logs in, each request made by user will include a JWT, which will allow user to access services, routes permitted with that token.

@@ -1,12 +1,13 @@
 <template>
   <nav
-    class="flex font-playfair bg-gray-800 justify-between items-center py-6 md:p-0"
+    class="flex font-playfair bg-gray-800 justify-between items-center py-6 md:px-12"
   >
     <div class="flex md:space-x-8 font-semibold flex-wrap items-center">
       <div class="hidden md:block">
         <nuxt-link to="/">
           <img
-            src="~/assets/images/self-logo.png"
+            class="h-12 w-12 rounded-full object-cover"
+            src="https://i.ibb.co/7g2qYFV/IMG-20200811-181855.jpg"
             alt="Profile image of blog owner"
           />
         </nuxt-link>
