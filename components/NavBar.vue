@@ -8,7 +8,7 @@
           <img
             class="h-12 w-12 rounded-full object-cover"
             src="https://i.ibb.co/7g2qYFV/IMG-20200811-181855.jpg"
-            alt="Profile image of blog owner"
+            alt="Profile image of blog owner."
           />
         </nuxt-link>
       </div>

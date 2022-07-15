@@ -28,6 +28,6 @@ I believe everything you do has consequences. And you have to face it, embrace i
 
 Although I grew up hugging the sea, I freaking love mountains. From time to time I wanna climb mountains. That’s it. I also wanna see Pink Floyd, Metallica, Damien Rice, Dream Theatre live. Maybe visit louvre someday or be amazed by the Sistine Chapel.
 
-![This is an image](https://i.ibb.co/gW59hSd/IMG-20191219-085416.jpg)
+![Me standing infront of a mountain](https://i.ibb.co/gW59hSd/IMG-20191219-085416.jpg)
 
 Thanks for reading. If you wanna catchup over a cup of coffee, reach me through any of following mediums. 🖖
