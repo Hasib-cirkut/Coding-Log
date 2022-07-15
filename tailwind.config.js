@@ -6,6 +6,14 @@ module.exports = {
 				montserrat: [ 'Montserrat', 'sans-serif' ],
 				playfair: [ 'Playfair Display', 'sans-serif' ],
 				bitter: [ 'Bitter', 'sans-serif' ]
+			},
+			backgroundColor: {
+				primary: '#041C32',
+				secondary: '#04293A'
+			},
+
+			textColor: {
+				accent: '#ECB365'
 			}
 		}
 	},
