@@ -18,7 +18,7 @@
         >
           <p class="text-emerald-400 text-xl" v-text="post.title" />
 
-          <p class="text-sm text-gray-300" v-text="post.desc" />
+          <p class="text-sm text-gray-300 truncate" v-text="post.desc" />
         </nuxt-link>
       </div>
     </div>
@@ -28,7 +28,9 @@
 <script>
 export default {
   async asyncData({ $content }) {
-    const articles = await $content("articles").fetch();
+    const articles = await $content("articles")
+      .sortBy("createdAt", "desc")
+      .fetch();
 
     let posts = [];
     let baseUrl = "/blog";

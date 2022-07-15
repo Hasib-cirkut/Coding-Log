@@ -34,7 +34,19 @@ export default {
   components: true,
 
   // Modules: https://go.nuxtjs.dev/config-modules
-  modules: ["@nuxt/content", "@nuxtjs/feed", "@nuxtjs/date-fns"],
+  modules: [
+    "@nuxt/content",
+    "@nuxtjs/feed",
+    "@nuxtjs/date-fns",
+    [
+      "nuxt-supabase",
+      {
+        supabaseUrl: "https://xunvhurwmsxwmslxpetf.supabase.co",
+        supabaseKey:
+          "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Inh1bnZodXJ3bXN4d21zbHhwZXRmIiwicm9sZSI6ImFub24iLCJpYXQiOjE2NTc4NzM2NTQsImV4cCI6MTk3MzQ0OTY1NH0.h2iuzXU_UZNtz8Vbgo_pSEcprysrtDkwgH01UWwhqNs",
+      },
+    ],
+  ],
 
   feed() {
     const baseUrlArticles = "http://localhost:3000/blog";

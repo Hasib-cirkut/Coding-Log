@@ -1,10 +1,8 @@
 ---
-Title: Browsers Request and Response Object. 
+Title: Browsers Request and Response Object.
 Description:
 Author: Hasibul Huda
 ---
-
-# Request and Response Object
 
 ## Request Object
 
@@ -24,7 +22,7 @@ Request object also has methods we can use.
 We can create a request using the `Request()` constructor and
 
 ```jsx
-const request = new Request('https://www.mozilla.org/favicon.ico');
+const request = new Request("https://www.mozilla.org/favicon.ico");
 
 const url = request.url;
 const method = request.method;
@@ -35,7 +33,7 @@ const credentials = request.credentials;
 
 ## Response Object
 
-The Response object represents the response to a request. We can create a response using the `Response()` constructor, but most of the time, response will come from the server. The Response object has some properties and methods we can use. 
+The Response object represents the response to a request. We can create a response using the `Response()` constructor, but most of the time, response will come from the server. The Response object has some properties and methods we can use.
 
 - body : The body that was returned from the server.
 - headers : The headers associated with the response.

@@ -28,16 +28,18 @@
     </div>
 
     <div class="flex space-x-4">
-      <a href="#" class="no-underline text-gray-200 hover:text-sky-400"
+      <a
+        href="https://github.com/Hasib-cirkut"
+        class="no-underline text-gray-200 hover:text-sky-400"
         >GitHub</a
       >
       <a
-        href="#"
+        href="https://www.linkedin.com/in/hasibul-huda-2042ba159/"
         class="hidden md:block no-underline text-gray-200 hover:text-sky-400"
         >LinkedIn</a
       >
       <a
-        href="#"
+        href="https://twitter.com/HudaHasibul"
         class="hidden md:block no-underline text-gray-200 hover:text-sky-400"
         >Twitter</a
       >
