@@ -101,10 +101,16 @@ export default {
     };
   },
 
+  head() {
+    return {
+      title: this.article.Title,
+    };
+  },
+
   async mounted() {
     this.urlPath = this.$route.path;
 
-    let { data, error } = await this.$supabase
+    const { data, error } = await this.$supabase
       .from("pagevisit")
       .select("view_count")
       .eq("id", this.$route.params.slug);

@@ -1,6 +1,6 @@
 <template>
-  <footer class="sticky">
-    <div class="flex mb-8 space-x-6 justify-center md:mt-0">
+  <footer>
+    <div class="flex space-x-6 justify-center md:mt-0">
       <a
         href="https://github.com/Hasib-cirkut"
         class="text-gray-400 hover:text-gray-900 dark:hover:text-white"

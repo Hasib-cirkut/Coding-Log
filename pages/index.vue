@@ -27,6 +27,16 @@
 
 <script>
 export default {
+  head: {
+    title: "Coding Log",
+    meta: [
+      {
+        hid: "Coding Log is a blog/portfolio by Hasibul Huda",
+        name: "description",
+        content: "This page contains recently published blogs list.",
+      },
+    ],
+  },
   async asyncData({ $content }) {
     const articles = await $content("articles")
       .sortBy("createdAt", "desc")

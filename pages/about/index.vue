@@ -6,19 +6,17 @@
       <nuxt-content :document="article" class="mt-16" />
     </main>
 
-    <footer-bar />
+    <contact-bar class="mb-8" />
   </div>
 </template>
 
 <script>
-import FooterBar from "../../components/FooterBar.vue";
+import ContactBar from "../../components/ContactBar.vue";
 export default {
-  components: { FooterBar },
+  components: { ContactBar },
   name: "IndexPage",
   async asyncData({ $content }) {
     const article = await $content("about", "about").fetch();
-
-    console.log(article);
 
     return { article };
   },

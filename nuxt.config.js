@@ -46,6 +46,7 @@ export default {
           "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Inh1bnZodXJ3bXN4d21zbHhwZXRmIiwicm9sZSI6ImFub24iLCJpYXQiOjE2NTc4NzM2NTQsImV4cCI6MTk3MzQ0OTY1NH0.h2iuzXU_UZNtz8Vbgo_pSEcprysrtDkwgH01UWwhqNs",
       },
     ],
+    "@nuxt/image",
   ],
 
   // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
