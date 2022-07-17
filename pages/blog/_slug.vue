@@ -30,7 +30,7 @@
                 clip-rule="evenodd"
               ></path>
             </svg>
-            updated {{ updated }}
+            {{ article.readingStats.text }}
           </p>
         </div>
 
